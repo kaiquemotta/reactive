@@ -13,14 +13,13 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class VehicleDTO {
+public class ClientDTO {
 
-	private String code;
-	private String model;
-	private String manufacturer;
-	private String color;
-	private BigDecimal value;
-	
+	private String id;
+	private String name;
+	private String age;
+	private String email;
+
 	
 	
 

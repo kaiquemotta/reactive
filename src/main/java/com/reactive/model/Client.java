@@ -15,25 +15,22 @@ import java.math.BigDecimal;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(value = "vehicles")
-public class Vehicle {
+@Document(value = "clients")
+public class Client {
 
 	@Id
 	private String id = new ObjectId().toString();
 	@Indexed(unique = true, background = true)
-	private String code;
-	private String model;
-	private String manufacturer;
-	private String color;
-	private BigDecimal value;
+	private String name;
+	private String age;
+	@Indexed(unique = true, background = true)
+	private String email;
 
-	public Vehicle(String code, String model, String manufacturer, String color, BigDecimal value) {
+	public Client(String name, String age, String email) {
 		super();
-		this.code = code;
-		this.model = model;
-		this.manufacturer = manufacturer;
-		this.color = color;
-		this.value = value;
+		this.name = name;
+		this.age = age;
+		this.email = email;
 	}
 
 }

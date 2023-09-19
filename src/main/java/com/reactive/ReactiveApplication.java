@@ -8,7 +8,7 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
 
 @EnableWebFlux
-@OpenAPIDefinition(info = @Info(title = "Vehicle API",
+@OpenAPIDefinition(info = @Info(title = "Client API",
 		           version = "1.0.0",
 		description = "Documentation APIs v1.0.0"
 ))

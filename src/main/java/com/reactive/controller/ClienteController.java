@@ -12,53 +12,53 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.reactive.dto.VehicleDTO;
+import com.reactive.dto.ClientDTO;
 import com.reactive.dto.ResponseDTO;
-import com.reactive.service.VehicleService;
+import com.reactive.service.ClientService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("api/vehicles")
-public class VehicleController {
+@RequestMapping("api/clients")
+public class ClienteController {
 
 	@Autowired
-	private VehicleService vehicleService;
+	private ClientService clientService;
 
 	@PostMapping
 	@ResponseStatus(value = HttpStatus.CREATED)
-	@Operation(description = "Create one Vehicle", requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody())
-	public Mono<?> create(@RequestBody VehicleDTO vehicleDTO) {
-		return this.vehicleService.create(vehicleDTO);
+	@Operation(description = "Create one Client", requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody())
+	public Mono<?> create(@RequestBody ClientDTO clientDTO) {
+		return this.clientService.create(clientDTO);
 	}
 
 	@GetMapping
 	@ResponseStatus(value = HttpStatus.OK)
-	@Operation(description = "Find all Vehicles")
-	public Flux<ResponseDTO<VehicleDTO>> getAll() {
-		return this.vehicleService.getAll();
+	@Operation(description = "Find all Client")
+	public Flux<ResponseDTO<ClientDTO>> getAll() {
+		return this.clientService.getAll();
 	}
 
 	@GetMapping("{code}")
 	@ResponseStatus(value = HttpStatus.OK)
-	@Operation(description = "Find by code of vehicle")
-	public Mono<ResponseDTO<VehicleDTO>> findByCode(@PathVariable("code") String code) {
-		return this.vehicleService.findByCode(code);
+	@Operation(description = "Find by code of client")
+	public Mono<ResponseDTO<ClientDTO>> findByCode(@PathVariable("code") String code) {
+		return this.clientService.findByCode(code);
 	}
 
 	@PutMapping
 	@ResponseStatus(value = HttpStatus.OK)
-	@Operation(description = "Update one vehicle")
-	public Mono<?> update(@RequestBody VehicleDTO vehicleDTO) {
-		return this.vehicleService.update(vehicleDTO);
+	@Operation(description = "Update one Client")
+	public Mono<?> update(@RequestBody ClientDTO clientDTO) {
+		return this.clientService.update(clientDTO);
 	}
 
 	@DeleteMapping("{code}")
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	public Mono<?> delete(@PathVariable("code") String code) {
-		return this.vehicleService.delete(code);
+		return this.clientService.delete(code);
 	}
 
 }
