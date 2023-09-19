@@ -15,7 +15,6 @@ import java.math.BigDecimal;
 @Builder
 public class ClientDTO {
 
-	private String id;
 	private String name;
 	private String age;
 	private String email;

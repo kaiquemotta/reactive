@@ -41,11 +41,11 @@ public class ClienteController {
 		return this.clientService.getAll();
 	}
 
-	@GetMapping("{code}")
+	@GetMapping("{email}")
 	@ResponseStatus(value = HttpStatus.OK)
-	@Operation(description = "Find by code of client")
-	public Mono<ResponseDTO<ClientDTO>> findByCode(@PathVariable("code") String code) {
-		return this.clientService.findByCode(code);
+	@Operation(description = "Find by email of client")
+	public Mono<ResponseDTO<ClientDTO>> findByCode(@PathVariable("email") String email) {
+		return this.clientService.findByEmail(email);
 	}
 
 	@PutMapping
@@ -55,9 +55,9 @@ public class ClienteController {
 		return this.clientService.update(clientDTO);
 	}
 
-	@DeleteMapping("{code}")
+	@DeleteMapping("{email}")
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
-	public Mono<?> delete(@PathVariable("code") String code) {
+	public Mono<?> delete(@PathVariable("email") String code) {
 		return this.clientService.delete(code);
 	}
 

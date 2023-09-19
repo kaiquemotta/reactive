@@ -20,6 +20,7 @@ public class Client {
 
 	@Id
 	private String id = new ObjectId().toString();
+    
 	@Indexed(unique = true, background = true)
 	private String name;
 	private String age;

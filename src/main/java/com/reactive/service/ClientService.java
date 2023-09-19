@@ -37,19 +37,18 @@ public class ClientService {
 				ClienteConverter.toClientDTO(client), LocalDateTime.now()));
 	}
 
-	public Mono<ResponseDTO<ClientDTO>> findByCode(String code) {
-		Mono<Client> clientMono = this.clientRepository.findById(code);
-		return clientMono.map(client -> new ResponseDTO("Busca por code retornada com sucesso!",
+	public Mono<ResponseDTO<ClientDTO>> findByEmail(String email) {
+		Mono<Client> clientMono = this.clientRepository.findByEmail(email);
+		return clientMono.map(client -> new ResponseDTO("Busca por email retornada com sucesso!",
 				ClienteConverter.toClientDTO(client), LocalDateTime.now()));
 
 	}
 
 	public Mono<ResponseDTO> update(ClientDTO clientDTO) {
 
-		Mono<Client> clientMono = this.clientRepository.findById(clientDTO.getId());
+		Mono<Client> clientMono = this.clientRepository.findByEmail(clientDTO.getEmail());
 
 		return clientMono.flatMap((clint) -> {
-			clint.setId(clientDTO.getId());
 			clint.setName(clientDTO.getName());
 			clint.setAge(clientDTO.getAge());
 			clint.setEmail(clientDTO.getEmail());

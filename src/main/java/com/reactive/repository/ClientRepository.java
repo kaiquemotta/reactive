@@ -10,7 +10,7 @@ import reactor.core.publisher.Mono;
 @Repository
 public interface ClientRepository extends ReactiveMongoRepository<Client, String> {
 
-    Mono<Client> findById(String code);
+    Mono<Client> findByEmail(String email);
 
-    Mono<Void> deleteById(String code);
+    Mono<Void> deleteByEmail(String code);
 }
